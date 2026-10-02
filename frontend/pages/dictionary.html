@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Dictionary - SignBridge</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🤟 Sign Dictionary</h1>
+        <p>Learn common Indian Sign Language signs with Marathi meanings</p>
+    </header>
+
+    <main>
+
+        <div class="dictionary-container">
+
+            <div class="dictionary-header">
+                <h2>Learn Signs</h2>
+
+                <p>
+                    Explore common signs and their Marathi meanings.
+                </p>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-box"
+                    placeholder="🔍 Search a sign..."
+                    onkeyup="searchSigns()"
+                >
+
+                <div class="category-buttons">
+
+                    <button onclick="filterSigns('all')">
+                        All
+                    </button>
+
+                    <button onclick="filterSigns('basic')">
+                        Basic
+                    </button>
+
+                    <button onclick="filterSigns('daily')">
+                        Daily Needs
+                    </button>
+
+                    <button onclick="filterSigns('safety')">
+                        Safety
+                    </button>
+
+                    <button onclick="filterSigns('places')">
+                        Places
+                    </button>
+
+                </div>
+
+                <p>
+                    <strong id="signCount">15</strong>
+                    Signs Available
+                </p>
+
+            </div>
+
+
+            <div class="dictionary-grid" id="dictionaryGrid">
+
+                <!-- Hello -->
+                <div class="sign-card" data-category="basic">
+                    <div class="sign-image">👋</div>
+
+                    <h3>Hello</h3>
+
+                    <p class="marathi">
+                        नमस्कार
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Hello')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Thank You -->
+                <div class="sign-card" data-category="basic">
+                    <div class="sign-image">🙏</div>
+
+                    <h3>Thank You</h3>
+
+                    <p class="marathi">
+                        धन्यवाद
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Thank You')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Yes -->
+                <div class="sign-card" data-category="basic">
+                    <div class="sign-image">✅</div>
+
+                    <h3>Yes</h3>
+
+                    <p class="marathi">
+                        हो
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Yes')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- No -->
+                <div class="sign-card" data-category="basic">
+                    <div class="sign-image">❌</div>
+
+                    <h3>No</h3>
+
+                    <p class="marathi">
+                        नाही
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('No')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Help -->
+                <div class="sign-card" data-category="safety">
+                    <div class="sign-image">🆘</div>
+
+                    <h3>Help</h3>
+
+                    <p class="marathi">
+                        मदत
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Help')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Stop -->
+                <div class="sign-card" data-category="safety">
+                    <div class="sign-image">✋</div>
+
+                    <h3>Stop</h3>
+
+                    <p class="marathi">
+                        थांबा
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Stop')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Water -->
+                <div class="sign-card" data-category="daily">
+                    <div class="sign-image">💧</div>
+
+                    <h3>Water</h3>
+
+                    <p class="marathi">
+                        पाणी
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Water')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Food -->
+                <div class="sign-card" data-category="daily">
+                    <div class="sign-image">🍽️</div>
+
+                    <h3>Food</h3>
+
+                    <p class="marathi">
+                        अन्न
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Food')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Goodbye -->
+                <div class="sign-card" data-category="basic">
+                    <div class="sign-image">👋</div>
+
+                    <h3>Goodbye</h3>
+
+                    <p class="marathi">
+                        निरोप
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Goodbye')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Emergency -->
+                <div class="sign-card" data-category="safety">
+                    <div class="sign-image">🚨</div>
+
+                    <h3>Emergency</h3>
+
+                    <p class="marathi">
+                        आपत्कालीन मदत
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Emergency')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Sorry -->
+                <div class="sign-card" data-category="basic">
+                    <div class="sign-image">🙏</div>
+
+                    <h3>Sorry</h3>
+
+                    <p class="marathi">
+                        माफ करा
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Sorry')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Please -->
+                <div class="sign-card" data-category="basic">
+                    <div class="sign-image">🤲</div>
+
+                    <h3>Please</h3>
+
+                    <p class="marathi">
+                        कृपया
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Please')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- School -->
+                <div class="sign-card" data-category="places">
+                    <div class="sign-image">🏫</div>
+
+                    <h3>School</h3>
+
+                    <p class="marathi">
+                        शाळा
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('School')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Home -->
+                <div class="sign-card" data-category="places">
+                    <div class="sign-image">🏠</div>
+
+                    <h3>Home</h3>
+
+                    <p class="marathi">
+                        घर
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Home')">
+                        Practice Sign
+                    </button>
+                </div>
+
+
+                <!-- Doctor -->
+                <div class="sign-card" data-category="daily">
+                    <div class="sign-image">🩺</div>
+
+                    <h3>Doctor</h3>
+
+                    <p class="marathi">
+                        डॉक्टर
+                    </p>
+
+                    <button
+                        class="practice-btn"
+                        onclick="practiceSign('Doctor')">
+                        Practice Sign
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        function searchSigns() {
+
+            const searchText =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            const cards =
+                document.querySelectorAll(".sign-card");
+
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+
+                const text =
+                    card.innerText.toLowerCase();
+
+                if (text.includes(searchText)) {
+
+                    card.style.display = "block";
+                    visibleCount++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+            document.getElementById("signCount")
+                .textContent = visibleCount;
+        }
+
+
+        function filterSigns(category) {
+
+            const cards =
+                document.querySelectorAll(".sign-card");
+
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+
+                if (
+                    category === "all" ||
+                    card.dataset.category === category
+                ) {
+
+                    card.style.display = "block";
+                    visibleCount++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+            document.getElementById("signCount")
+                .textContent = visibleCount;
+        }
+
+
+        function practiceSign(signName) {
+    window.location.href =
+        "practice.html?sign=" + encodeURIComponent(signName);
+        }
+    </script>
+
+</body>
+
+</html>

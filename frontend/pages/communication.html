@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quick Communication - SignBridge</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>💬 Quick Communication</h1>
+        <p>Choose, speak, copy or display a message quickly</p>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <h2>Common Phrases</h2>
+
+            <p>
+                Useful phrases for everyday communication.
+            </p>
+
+
+            <div class="dictionary-grid">
+
+                <div class="sign-card">
+                    <div class="sign-image">👋</div>
+                    <h3>Hello</h3>
+                    <p class="marathi">नमस्कार</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('नमस्कार')">
+                        Select
+                    </button>
+                </div>
+
+
+                <div class="sign-card">
+                    <div class="sign-image">🙏</div>
+                    <h3>Thank You</h3>
+                    <p class="marathi">धन्यवाद</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('धन्यवाद')">
+                        Select
+                    </button>
+                </div>
+
+
+                <div class="sign-card">
+                    <div class="sign-image">🆘</div>
+                    <h3>I Need Help</h3>
+                    <p class="marathi">मला मदत हवी आहे</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('मला मदत हवी आहे')">
+                        Select
+                    </button>
+                </div>
+
+
+                <div class="sign-card">
+                    <div class="sign-image">💧</div>
+                    <h3>I Need Water</h3>
+                    <p class="marathi">मला पाणी हवे आहे</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('मला पाणी हवे आहे')">
+                        Select
+                    </button>
+                </div>
+
+
+                <div class="sign-card">
+                    <div class="sign-image">🍽️</div>
+                    <h3>I Need Food</h3>
+                    <p class="marathi">मला जेवण हवे आहे</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('मला जेवण हवे आहे')">
+                        Select
+                    </button>
+                </div>
+
+
+                <div class="sign-card">
+                    <div class="sign-image">🩺</div>
+                    <h3>I Need a Doctor</h3>
+                    <p class="marathi">मला डॉक्टरांची गरज आहे</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('मला डॉक्टरांची गरज आहे')">
+                        Select
+                    </button>
+                </div>
+
+
+                <div class="sign-card">
+                    <div class="sign-image">❌</div>
+                    <h3>I Don't Understand</h3>
+                    <p class="marathi">मला समजत नाही</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('मला समजत नाही')">
+                        Select
+                    </button>
+                </div>
+
+
+                <div class="sign-card">
+                    <div class="sign-image">🏠</div>
+                    <h3>I Want to Go Home</h3>
+                    <p class="marathi">मला घरी जायचे आहे</p>
+
+                    <button class="practice-btn"
+                        onclick="selectPhrase('मला घरी जायचे आहे')">
+                        Select
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- Selected phrase -->
+            <div
+                style="
+                    margin-top: 40px;
+                    padding: 25px;
+                    background: white;
+                    border-radius: 18px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                    text-align: center;
+                "
+            >
+
+                <h2>Selected Message</h2>
+
+                <p
+                    id="selectedPhrase"
+                    style="
+                        font-size: 30px;
+                        font-weight: bold;
+                        margin: 20px;
+                    "
+                >
+                    Select a phrase
+                </p>
+
+
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                        flex-wrap: wrap;
+                    "
+                >
+
+                    <button
+                        class="practice-btn"
+                        onclick="speakPhrase()">
+                        🔊 Speak
+                    </button>
+
+                    <button
+                        class="practice-btn"
+                        onclick="showLarge()">
+                        📱 Show Large
+                    </button>
+
+                    <button
+                        class="practice-btn"
+                        onclick="copyPhrase()">
+                        📋 Copy
+                    </button>
+
+                    <button
+                        class="practice-btn"
+                        onclick="saveFavorite()">
+                        ⭐ Favorite
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Custom message -->
+            <div
+                style="
+                    margin-top: 30px;
+                    padding: 25px;
+                    background: white;
+                    border-radius: 18px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                "
+            >
+
+                <h2>✏️ Custom Message</h2>
+
+                <p>
+                    Type any message you want to communicate.
+                </p>
+
+                <textarea
+                    id="customMessage"
+                    placeholder="उदा. मला बसने जायचे आहे"
+                    rows="4"
+                    style="
+                        width: 100%;
+                        padding: 14px;
+                        box-sizing: border-box;
+                        border-radius: 12px;
+                        border: 1px solid #ccc;
+                        font-size: 18px;
+                        resize: vertical;
+                    "
+                ></textarea>
+
+                <br><br>
+
+                <button
+                    class="practice-btn"
+                    onclick="useCustomMessage()">
+                    Use Message
+                </button>
+
+            </div>
+
+
+            <!-- Favorites -->
+            <div
+                style="
+                    margin-top: 30px;
+                    padding: 25px;
+                    background: white;
+                    border-radius: 18px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                "
+            >
+
+                <h2>⭐ Favorite Messages</h2>
+
+                <div id="favorites">
+                    No favorites saved yet.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Large message popup -->
+    <div
+        id="largeMessage"
+        style="
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        "
+    >
+
+        <div
+            style="
+                background: white;
+                padding: 40px;
+                border-radius: 20px;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+            "
+        >
+
+            <p
+                id="largeText"
+                style="
+                    font-size: 42px;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                "
+            ></p>
+
+            <button
+                class="practice-btn"
+                onclick="closeLarge()">
+                ✕ Close
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let currentPhrase = "";
+
+
+        function selectPhrase(phrase) {
+
+            currentPhrase = phrase;
+
+            document.getElementById("selectedPhrase")
+                .textContent = phrase;
+
+        }
+
+
+        function speakPhrase() {
+
+            if (!currentPhrase) {
+                alert("Please select a phrase first.");
+                return;
+            }
+
+            if (!("speechSynthesis" in window)) {
+                alert("Text-to-speech is not supported in this browser.");
+                return;
+            }
+
+            const speech =
+                new SpeechSynthesisUtterance(currentPhrase);
+
+            speech.lang = "mr-IN";
+            speech.rate = 0.9;
+
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(speech);
+        }
+
+
+        function showLarge() {
+
+            if (!currentPhrase) {
+                alert("Please select a phrase first.");
+                return;
+            }
+
+            document.getElementById("largeText")
+                .textContent = currentPhrase;
+
+            document.getElementById("largeMessage")
+                .style.display = "flex";
+        }
+
+
+        function closeLarge() {
+
+            document.getElementById("largeMessage")
+                .style.display = "none";
+        }
+
+
+        async function copyPhrase() {
+
+            if (!currentPhrase) {
+                alert("Please select a phrase first.");
+                return;
+            }
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    currentPhrase
+                );
+
+                alert("Message copied!");
+
+            } catch (error) {
+
+                alert("Could not copy the message.");
+
+            }
+        }
+
+
+        function saveFavorite() {
+
+            if (!currentPhrase) {
+                alert("Please select a phrase first.");
+                return;
+            }
+
+            let favorites =
+                JSON.parse(
+                    localStorage.getItem("signbridgeFavorites")
+                ) || [];
+
+            if (!favorites.includes(currentPhrase)) {
+
+                favorites.push(currentPhrase);
+
+                localStorage.setItem(
+                    "signbridgeFavorites",
+                    JSON.stringify(favorites)
+                );
+
+            }
+
+            displayFavorites();
+        }
+
+
+        function displayFavorites() {
+
+            const container =
+                document.getElementById("favorites");
+
+            let favorites =
+                JSON.parse(
+                    localStorage.getItem("signbridgeFavorites")
+                ) || [];
+
+            if (favorites.length === 0) {
+
+                container.textContent =
+                    "No favorites saved yet.";
+
+                return;
+            }
+
+            container.innerHTML = "";
+
+            favorites.forEach((phrase, index) => {
+
+                const row =
+                    document.createElement("div");
+
+                row.style.marginBottom = "12px";
+
+                row.innerHTML =
+                    `<button
+                        class="practice-btn"
+                        onclick="selectPhrase('${phrase.replace(/'/g, "\\'")}')">
+                        ${phrase}
+                    </button>`;
+
+                container.appendChild(row);
+
+            });
+
+        }
+
+
+        function useCustomMessage() {
+
+            const message =
+                document.getElementById("customMessage")
+                .value
+                .trim();
+
+            if (!message) {
+                alert("Please type a message.");
+                return;
+            }
+
+            selectPhrase(message);
+        }
+
+
+        displayFavorites();
+
+    </script>
+
+</body>
+
+</html>

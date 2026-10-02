@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Practice Mode - SignBridge</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🧠 Practice Mode</h1>
+        <p>Practice a sign and let SignBridge check it</p>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <h2 id="targetSign">
+                Practice Sign
+            </h2>
+
+            <p id="targetMeaning">
+                Perform the selected sign in front of the camera.
+            </p>
+
+            <button onclick="startPracticeCamera()">
+                Start Practice
+            </button>
+
+            <br><br>
+
+            <video
+                id="practiceCamera"
+                width="350"
+                autoplay
+                playsinline>
+            </video>
+
+            <h3>Result:</h3>
+
+            <p id="practiceResult">
+                Waiting for your sign...
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="../practice.js"></script>
+
+</body>
+
+</html>
