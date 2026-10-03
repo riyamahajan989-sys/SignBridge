@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000";
+const API_URL ="https://signbridge-2-2ftb.onrender.com";
 
 const params = new URLSearchParams(window.location.search);
 const targetSign = params.get("sign") || "Hello";
