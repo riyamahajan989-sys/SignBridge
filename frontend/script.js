@@ -62,12 +62,12 @@ async function recognizeSign() {
             try {
 
                 const response = await fetch(
-                    "http://127.0.0.1:5000/predict",
-                    {
-                        method: "POST",
-                        body: formData
-                    }
-                );
+                        `${API_URL}/predict`,
+                {
+                method: "POST",
+                body: formData
+                }
+            );
 
                 const data = await response.json();
 
