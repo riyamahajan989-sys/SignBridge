@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000";
+const API_URL ="https://signbridge-2-2ftb.onrender.com" ;
 const video = document.getElementById("camera");
 const canvas = document.createElement("canvas");
 const resultText = document.getElementById("result");
