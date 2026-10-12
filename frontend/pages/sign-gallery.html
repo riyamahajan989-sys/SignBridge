@@ -37,7 +37,7 @@
             </div>
 
             <!-- Result Counter -->
-            <p id="resultCount" class="result-count">4 signs found</p>
+            <p id="resultCount" class="result-count">Loading signs...</p>
 
             <!-- Sign Gallery -->
             <div class="real-sign-grid" id="signGallery">
@@ -306,7 +306,19 @@
 
     </main>
 
+    function updateResultCount() {
+    let cards = document.querySelectorAll(".real-sign-card");
+    let visibleCards = 0;
 
+    cards.forEach(function(card) {
+        if (card.style.display !== "none") {
+            visibleCards++;
+        }
+    });
+
+    document.getElementById("resultCount").innerText =
+        visibleCards + (visibleCards === 1 ? " sign found" : " signs found");
+    }
     <!-- Search Function -->
     <script>
 
