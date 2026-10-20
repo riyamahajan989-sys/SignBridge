@@ -164,6 +164,60 @@
             </div>
         </section>
   </main>
+    <script>
+function getMyLocation() {
+    const status = document.getElementById("locationStatus");
+    const link = document.getElementById("locationLink");
+
+    link.replaceChildren();
+
+    if (!navigator.geolocation) {
+        status.textContent = "Location is not supported by this browser.";
+        return;
+    }
+
+    status.textContent = "Requesting location permission...";
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            const mapURL =
+                "https://www.google.com/maps?q=" + lat + "," + lon;
+
+            status.textContent =
+                "Location obtained. Share it only with someone you trust.";
+
+            const mapLink = document.createElement("a");
+            mapLink.href = mapURL;
+            mapLink.target = "_blank";
+            mapLink.rel = "noopener noreferrer";
+            mapLink.textContent = "Open my location on the map";
+
+            link.appendChild(mapLink);
+        },
+        function() {
+            status.textContent =
+                "Unable to get location. Check permission and try again.";
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+    );
+}
+
+async function copySOSMessage() {
+    const message = document.getElementById("sosMessage").value;
+    const status = document.getElementById("messageStatus");
+
+    try {
+        await navigator.clipboard.writeText(message);
+        status.textContent = "SOS message copied. You can now share it.";
+    } catch (error) {
+        status.textContent =
+            "Copy unavailable. Please select and copy the message manually.";
+    }
+}
+</script>
 </body>
 
 </html>
