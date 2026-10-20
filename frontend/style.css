@@ -335,3 +335,66 @@ footer {
         max-width: 100%;
     }
 }
+/* Fix sign images on mobile and desktop */
+.sign-card {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.sign-image {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.sign-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 600px) {
+    .dictionary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .sign-card {
+        padding: 12px;
+    }
+
+    .sign-image {
+        height: 140px;
+    }
+
+    .sign-card h3 {
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .sign-card .marathi {
+        overflow-wrap: anywhere;
+    }
+
+    .sign-card .practice-btn {
+        display: inline-block;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 360px) {
+    .dictionary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sign-image {
+        height: 180px;
+    }
+}
