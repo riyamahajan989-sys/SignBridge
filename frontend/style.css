@@ -245,3 +245,93 @@ footer {
     margin: 0;
     font-size: 17px;
 }
+/* SOS Emergency Section */
+.sos-section {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 1000px;
+    text-align: center;
+    background: #f5f8ff;
+    border-radius: 16px;
+}
+
+.sos-section h2 {
+    color: #b91c1c;
+    margin-bottom: 10px;
+}
+
+.sos-section > p {
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.sos-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 650px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.sos-card h3 {
+    color: #1e3a8a;
+    margin-top: 0;
+}
+
+.sos-button {
+    display: inline-block;
+    background: #dc2626;
+    color: #ffffff;
+    padding: 11px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sos-button:hover {
+    background: #991b1b;
+}
+
+.sos-card textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 500px;
+    margin: 12px auto;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+#locationStatus,
+#locationLink,
+#messageStatus {
+    overflow-wrap: anywhere;
+    margin-top: 12px;
+}
+
+#locationLink a {
+    color: #1d4ed8;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .sos-section {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+
+    .sos-card {
+        padding: 15px;
+    }
+
+    .sos-button {
+        max-width: 100%;
+    }
+}
