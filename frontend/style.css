@@ -398,3 +398,71 @@ footer {
         height: 180px;
     }
 }
+/* Emergency page responsive layout */
+body:has(.sos-section) .hero .dictionary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+body:has(.sos-section) .hero .sign-card {
+    width: 100%;
+    min-width: 0;
+    padding: 18px;
+}
+
+body:has(.sos-section) .hero .sign-image {
+    width: 100%;
+    height: 190px;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body:has(.sos-section) .hero .sign-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+body:has(.sos-section) .sos-section {
+    width: calc(100% - 32px);
+    max-width: 1000px;
+}
+
+body:has(.sos-section) {
+    overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+    body:has(.sos-section) .hero {
+        padding: 30px 14px;
+    }
+
+    body:has(.sos-section) .hero .dictionary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    body:has(.sos-section) .hero .sign-card {
+        padding: 12px;
+    }
+
+    body:has(.sos-section) .hero .sign-image {
+        height: 145px;
+    }
+
+    body:has(.sos-section) .sos-section {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    body:has(.sos-section) .hero .dictionary-grid {
+        grid-template-columns: 1fr;
+    }
+}
