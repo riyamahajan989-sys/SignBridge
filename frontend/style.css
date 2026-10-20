@@ -245,3 +245,288 @@ footer {
     margin: 0;
     font-size: 17px;
 }
+/* SOS Emergency Section */
+.sos-section {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 1000px;
+    text-align: center;
+    background: #f5f8ff;
+    border-radius: 16px;
+}
+
+.sos-section h2 {
+    color: #b91c1c;
+    margin-bottom: 10px;
+}
+
+.sos-section > p {
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.sos-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 650px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.sos-card h3 {
+    color: #1e3a8a;
+    margin-top: 0;
+}
+
+.sos-button {
+    display: inline-block;
+    background: #dc2626;
+    color: #ffffff;
+    padding: 11px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sos-button:hover {
+    background: #991b1b;
+}
+
+.sos-card textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 500px;
+    margin: 12px auto;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+#locationStatus,
+#locationLink,
+#messageStatus {
+    overflow-wrap: anywhere;
+    margin-top: 12px;
+}
+
+#locationLink a {
+    color: #1d4ed8;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .sos-section {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+
+    .sos-card {
+        padding: 15px;
+    }
+
+    .sos-button {
+        max-width: 100%;
+    }
+}
+/* Fix sign images on mobile and desktop */
+.sign-card {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.sign-image {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.sign-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 600px) {
+    .dictionary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .sign-card {
+        padding: 12px;
+    }
+
+    .sign-image {
+        height: 140px;
+    }
+
+    .sign-card h3 {
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .sign-card .marathi {
+        overflow-wrap: anywhere;
+    }
+
+    .sign-card .practice-btn {
+        display: inline-block;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 360px) {
+    .dictionary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sign-image {
+        height: 180px;
+    }
+}
+/* Emergency page responsive layout */
+body:has(.sos-section) .hero .dictionary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+body:has(.sos-section) .hero .sign-card {
+    width: 100%;
+    min-width: 0;
+    padding: 18px;
+}
+
+body:has(.sos-section) .hero .sign-image {
+    width: 100%;
+    height: 190px;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body:has(.sos-section) .hero .sign-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+body:has(.sos-section) .sos-section {
+    width: calc(100% - 32px);
+    max-width: 1000px;
+}
+
+body:has(.sos-section) {
+    overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+    body:has(.sos-section) .hero {
+        padding: 30px 14px;
+    }
+
+    body:has(.sos-section) .hero .dictionary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    body:has(.sos-section) .hero .sign-card {
+        padding: 12px;
+    }
+
+    body:has(.sos-section) .hero .sign-image {
+        height: 145px;
+    }
+
+    body:has(.sos-section) .sos-section {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    body:has(.sos-section) .hero .dictionary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Emergency page: responsive sign cards */
+body:has(.sos-section) .dictionary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+body:has(.sos-section) .dictionary-grid .sign-card {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+}
+
+body:has(.sos-section) .dictionary-grid .sign-image {
+    width: 100%;
+    height: 180px;
+    margin: 0 auto 15px;
+    padding: 5px;
+    overflow: hidden;
+    background: #f1f1f1;
+}
+
+body:has(.sos-section) .dictionary-grid .sign-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+body:has(.sos-section) .sos-section {
+    width: calc(100% - 30px);
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+body:has(.sos-section) {
+    overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+    body:has(.sos-section) .hero {
+        padding: 30px 15px;
+    }
+
+    body:has(.sos-section) .dictionary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    body:has(.sos-section) .dictionary-grid .sign-image {
+        height: 140px;
+    }
+
+    body:has(.sos-section) .sos-section {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    body:has(.sos-section) .dictionary-grid {
+        grid-template-columns: 1fr;
+    }
+}

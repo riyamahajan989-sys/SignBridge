@@ -30,7 +30,9 @@
             <div class="dictionary-grid">
 
                 <div class="sign-card">
-                    <div class="sign-image">🆘</div>
+                    <div class="sign-image">
+    <img src="../assets/signs/emergency.jpg" alt="Emergency sign">
+</div>
 
                     <h3>Emergency</h3>
 
@@ -47,7 +49,9 @@
 
 
                 <div class="sign-card">
-                    <div class="sign-image">🤝</div>
+                    <div class="sign-image">
+    <img src="../assets/signs/help.jpg" alt="Help sign">
+</div>
 
                     <h3>Help</h3>
 
@@ -64,7 +68,9 @@
 
 
                 <div class="sign-card">
-                    <div class="sign-image">✋</div>
+                    <div class="sign-image">
+    <img src="../assets/signs/stop.jpg" alt="Stop sign">
+</div>
 
                     <h3>Stop</h3>
 
@@ -81,7 +87,9 @@
 
 
                 <div class="sign-card">
-                    <div class="sign-image">💧</div>
+                    <div class="sign-image">
+    <img src="../assets/signs/water.jpg" alt="Water sign">
+</div>
 
                     <h3>Water</h3>
 
@@ -98,8 +106,9 @@
 
 
                 <div class="sign-card">
-                    <div class="sign-image">🩺</div>
-
+                    <div class="sign-image">
+    <img src="../assets/signs/doctor.jpg" alt="Doctor sign">
+</div>
                     <h3>Doctor</h3>
 
                     <p class="marathi">
@@ -133,9 +142,91 @@
             </a>
 
         </section>
+            <section class="sos-section">
+            <h2>🆘 SOS Emergency Help</h2>
+            <p>Get emergency contact options and share your location if you choose.</p>
 
-    </main>
+            <div class="sos-card">
+                <h3>🚨 National Emergency Number</h3>
+                <p>For urgent emergencies in India.</p>
+                <a href="tel:112" class="sos-button">Call 112</a>
+            </div>
 
+            <div class="sos-card">
+                <h3>🚑 Ambulance</h3>
+                <p>Call 108 for ambulance service where available.</p>
+                <a href="tel:108" class="sos-button">Call 108</a>
+            </div>
+
+            <div class="sos-card">
+                <h3>📍 Share My Location</h3>
+                <p id="locationStatus">Press the button to request your location.</p>
+                <button type="button" class="sos-button" onclick="getMyLocation()">Get My Location</button>
+                <p id="locationLink"></p>
+            </div>
+
+            <div class="sos-card">
+                <h3>💬 SOS Message</h3>
+                <textarea id="sosMessage" rows="3">I need help. Please contact me as soon as possible.</textarea>
+                <button type="button" class="sos-button" onclick="copySOSMessage()">Copy SOS Message</button>
+                <p id="messageStatus" aria-live="polite"></p>
+            </div>
+        </section>
+  </main>
+    <script>
+function getMyLocation() {
+    const status = document.getElementById("locationStatus");
+    const link = document.getElementById("locationLink");
+
+    link.replaceChildren();
+
+    if (!navigator.geolocation) {
+        status.textContent = "Location is not supported by this browser.";
+        return;
+    }
+
+    status.textContent = "Requesting location permission...";
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            const mapURL =
+                "https://www.google.com/maps?q=" + lat + "," + lon;
+
+            status.textContent =
+                "Location obtained. Share it only with someone you trust.";
+
+            const mapLink = document.createElement("a");
+            mapLink.href = mapURL;
+            mapLink.target = "_blank";
+            mapLink.rel = "noopener noreferrer";
+            mapLink.textContent = "Open my location on the map";
+
+            link.appendChild(mapLink);
+        },
+        function() {
+            status.textContent =
+                "Unable to get location. Check permission and try again.";
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+    );
+}
+
+async function copySOSMessage() {
+    const message = document.getElementById("sosMessage").value;
+    const status = document.getElementById("messageStatus");
+
+    try {
+        await navigator.clipboard.writeText(message);
+        status.textContent = "SOS message copied. You can now share it.";
+    } catch (error) {
+        status.textContent =
+            "Copy unavailable. Please select and copy the message manually.";
+    }
+}
+</script>
 </body>
 
 </html>
