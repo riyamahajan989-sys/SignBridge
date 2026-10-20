@@ -338,6 +338,86 @@
                         Practice Sign
                     </button>
                 </div>
+                
+<!-- Welcome -->
+<div class="sign-card" data-category="basic">
+    <div class="sign-image">🤗</div>
+    <h3>Welcome</h3>
+    <p class="marathi">स्वागत</p>
+    <button class="practice-btn" onclick="practiceSign('Welcome')">Practice Sign</button>
+</div>
+
+<!-- Good -->
+<div class="sign-card" data-category="basic">
+    <div class="sign-image">👍</div>
+    <h3>Good</h3>
+    <p class="marathi">चांगले</p>
+    <button class="practice-btn" onclick="practiceSign('Good')">Practice Sign</button>
+</div>
+
+<!-- Bad -->
+<div class="sign-card" data-category="basic">
+    <div class="sign-image">👎</div>
+    <h3>Bad</h3>
+    <p class="marathi">वाईट</p>
+    <button class="practice-btn" onclick="practiceSign('Bad')">Practice Sign</button>
+</div>
+
+<!-- Friend -->
+<div class="sign-card" data-category="basic">
+    <div class="sign-image">🧑‍🤝‍🧑</div>
+    <h3>Friend</h3>
+    <p class="marathi">मित्र</p>
+    <button class="practice-btn" onclick="practiceSign('Friend')">Practice Sign</button>
+</div>
+
+<!-- Eat -->
+<div class="sign-card" data-category="daily">
+    <div class="sign-image">🍽️</div>
+    <h3>Eat</h3>
+    <p class="marathi">खाणे</p>
+    <button class="practice-btn" onclick="practiceSign('Eat')">Practice Sign</button>
+</div>
+
+<!-- Drink -->
+<div class="sign-card" data-category="daily">
+    <div class="sign-image">🥤</div>
+    <h3>Drink</h3>
+    <p class="marathi">पिणे</p>
+    <button class="practice-btn" onclick="practiceSign('Drink')">Practice Sign</button>
+</div>
+
+<!-- Mother -->
+<div class="sign-card" data-category="daily">
+    <div class="sign-image">👩</div>
+    <h3>Mother</h3>
+    <p class="marathi">आई</p>
+    <button class="practice-btn" onclick="practiceSign('Mother')">Practice Sign</button>
+</div>
+
+<!-- Father -->
+<div class="sign-card" data-category="daily">
+    <div class="sign-image">👨</div>
+    <h3>Father</h3>
+    <p class="marathi">वडील</p>
+    <button class="practice-btn" onclick="practiceSign('Father')">Practice Sign</button>
+</div>
+
+<!-- College -->
+<div class="sign-card" data-category="places">
+    <div class="sign-image">🎓</div>
+    <h3>College</h3>
+    <p class="marathi">महाविद्यालय</p>
+    <button class="practice-btn" onclick="practiceSign('College')">Practice Sign</button>
+</div>
+
+<!-- Hospital -->
+<div class="sign-card" data-category="places">
+    <div class="sign-image">🏥</div>
+    <h3>Hospital</h3>
+    <p class="marathi">रुग्णालय</p>
+    <button class="practice-btn" onclick="practiceSign('Hospital')">Practice Sign</button>
+</div>
 
             </div>
 
@@ -346,78 +426,51 @@
     </main>
 
 
-    <script>
+    
+<script>
+    let selectedCategory = "all";
 
-        function searchSigns() {
+    function updateSigns() {
+        const searchText = document
+            .getElementById("searchInput")
+            .value.toLowerCase().trim();
 
-            const searchText =
-                document.getElementById("searchInput")
-                .value
-                .toLowerCase();
+        const cards = document.querySelectorAll(".sign-card");
+        let visibleCount = 0;
 
-            const cards =
-                document.querySelectorAll(".sign-card");
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            const matchesSearch = text.includes(searchText);
+            const matchesCategory =
+                selectedCategory === "all" ||
+                card.dataset.category === selectedCategory;
 
-            let visibleCount = 0;
+            if (matchesSearch && matchesCategory) {
+                card.style.display = "";
+                visibleCount++;
+            } else {
+                card.style.display = "none";
+            }
+        });
 
-            cards.forEach(card => {
+        document.getElementById("signCount").textContent =
+            visibleCount;
+    }
 
-                const text =
-                    card.innerText.toLowerCase();
+    function searchSigns() {
+        updateSigns();
+    }
 
-                if (text.includes(searchText)) {
+    function filterSigns(category) {
+        selectedCategory = category;
+        updateSigns();
+    }
 
-                    card.style.display = "block";
-                    visibleCount++;
-
-                } else {
-
-                    card.style.display = "none";
-
-                }
-
-            });
-
-            document.getElementById("signCount")
-                .textContent = visibleCount;
-        }
-
-
-        function filterSigns(category) {
-
-            const cards =
-                document.querySelectorAll(".sign-card");
-
-            let visibleCount = 0;
-
-            cards.forEach(card => {
-
-                if (
-                    category === "all" ||
-                    card.dataset.category === category
-                ) {
-
-                    card.style.display = "block";
-                    visibleCount++;
-
-                } else {
-
-                    card.style.display = "none";
-
-                }
-
-            });
-
-            document.getElementById("signCount")
-                .textContent = visibleCount;
-        }
-
-
-        function practiceSign(signName) {
-    window.location.href =
-        "practice.html?sign=" + encodeURIComponent(signName);
-        }
-    </script>
+    function practiceSign(signName) {
+        window.location.href =
+            "practice.html?sign=" + encodeURIComponent(signName);
+    }
+</script>
 
 </body>
 
