@@ -8,23 +8,17 @@ import mediapipe as mp
 # Settings
 # -----------------------------
 SIGNS = [
-    # "Hello",
-    # "Thank_You",
-    # "Yes",
-    # "No",
-    # "Help",
-    # "Stop",
-    # "Water",
-    # "Food",
-    # "Goodbye",
-    # "Emergency"
-    "Sorry",
-    "Please",
-    "School",
-    "Home",
-    "Doctor"
+    "Good",
+    "Bad",
+    "Again",
+    "Wait",
+    "Come",
+    "Go",
+    "Drink",
+    "Eat",
+    "Mother",
+    "Father"
 ]
-
 SAMPLES_PER_SIGN = 100
 
 # -----------------------------
