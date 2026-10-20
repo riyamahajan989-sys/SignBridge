@@ -135,6 +135,36 @@
         </section>
 
     </main>
+            <section class="sos-section">
+            <h2>🆘 SOS Emergency Help</h2>
+            <p>Get emergency contact options and share your location if you choose.</p>
+
+            <div class="sos-card">
+                <h3>🚨 National Emergency Number</h3>
+                <p>For urgent emergencies in India.</p>
+                <a href="tel:112" class="sos-button">Call 112</a>
+            </div>
+
+            <div class="sos-card">
+                <h3>🚑 Ambulance</h3>
+                <p>Call 108 for ambulance service where available.</p>
+                <a href="tel:108" class="sos-button">Call 108</a>
+            </div>
+
+            <div class="sos-card">
+                <h3>📍 Share My Location</h3>
+                <p id="locationStatus">Press the button to request your location.</p>
+                <button type="button" class="sos-button" onclick="getMyLocation()">Get My Location</button>
+                <p id="locationLink"></p>
+            </div>
+
+            <div class="sos-card">
+                <h3>💬 SOS Message</h3>
+                <textarea id="sosMessage" rows="3">I need help. Please contact me as soon as possible.</textarea>
+                <button type="button" class="sos-button" onclick="copySOSMessage()">Copy SOS Message</button>
+                <p id="messageStatus" aria-live="polite"></p>
+            </div>
+        </section>
 
 </body>
 
